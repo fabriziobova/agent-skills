@@ -46,34 +46,25 @@ Each skill lives in `skills/<name>/` and consists of:
 
 ## Installing Skills
 
+The recommended way is via `npx`. No clone or manual copy needed.
+
 ### Personal skill (available in all your projects)
 
-Copy the skill directory into `~/.copilot/skills/`:
-
 ```bash
-# Clone once, then symlink or copy individual skills
-git clone https://github.com/fabriziobova/agent-skills.git
-
-# Install a specific skill (e.g. tosca)
-cp -r agent-skills/skills/tosca ~/.copilot/skills/tosca
+npx skills install fabriziobova/agent-skills/tosca --global
 ```
+
+This copies `skills/tosca` into `~/.copilot/skills/tosca`.
 
 ### Project skill (available only in a specific repository)
 
-Copy the skill directory into `.github/skills/` inside your project:
+Run from within your project root:
 
 ```bash
-mkdir -p .github/skills
-cp -r /path/to/agent-skills/skills/tosca .github/skills/tosca
+npx skills install fabriziobova/agent-skills/tosca
 ```
 
-### Using `gh skill` (GitHub CLI)
-
-If you have the `gh` CLI with the `skill` extension:
-
-```bash
-gh skill install fabriziobova/agent-skills/skills/tosca
-```
+This copies `skills/tosca` into `.github/skills/tosca`.
 
 ### Reload skills in a running session
 
