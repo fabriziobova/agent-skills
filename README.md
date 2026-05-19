@@ -44,6 +44,53 @@ Each skill lives in `skills/<name>/` and consists of:
 4. Add at least 3 evaluation cases in `evals/evals.json`.
 5. Optionally add reference files under `references/`.
 
+## Installing Skills
+
+### Personal skill (available in all your projects)
+
+Copy the skill directory into `~/.copilot/skills/`:
+
+```bash
+# Clone once, then symlink or copy individual skills
+git clone https://github.com/fabriziobova/agent-skills.git
+
+# Install a specific skill (e.g. tosca)
+cp -r agent-skills/skills/tosca ~/.copilot/skills/tosca
+```
+
+### Project skill (available only in a specific repository)
+
+Copy the skill directory into `.github/skills/` inside your project:
+
+```bash
+mkdir -p .github/skills
+cp -r /path/to/agent-skills/skills/tosca .github/skills/tosca
+```
+
+### Using `gh skill` (GitHub CLI)
+
+If you have the `gh` CLI with the `skill` extension:
+
+```bash
+gh skill install fabriziobova/agent-skills/skills/tosca
+```
+
+### Reload skills in a running session
+
+If Copilot CLI is already open, reload without restarting:
+
+```
+/skills reload
+```
+
+Verify the skill is active:
+
+```
+/skills info tosca
+```
+
+---
+
 ## Running Evaluations
 
 Use the built-in `skill-creator` skill to run evals and benchmark a skill:
