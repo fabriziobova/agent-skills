@@ -1,0 +1,23 @@
+{
+  "skill_name": "tosca",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Crea un file TOSCA 2.0 per deployare un'applicazione Node.js su una VM Linux con un database MongoDB. L'app deve girare sulla porta 3000 e il MongoDB sulla porta 27017. Voglio anche configurare un endpoint pubblico per l'applicazione.",
+      "expected_output": "Un file YAML TOSCA 2.0 valido con tosca_definitions_version: tosca_2_0, service_template (non topology_template), importazione del profilo org.oasis-open.simple:2.0, node templates per Compute, SoftwareComponent (o tipo custom per Node.js), DBMS/Database per MongoDB, senza usare la sintassi 1.x.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Ho bisogno di definire un tipo TOSCA 2.0 personalizzato chiamato 'KubernetesDeployment' che rappresenti un deployment Kubernetes. Deve avere proprietà per: nome del deployment, namespace, numero di repliche (default 1), e immagine Docker. Deve avere una capability di tipo Endpoint e un requirement verso un Container.Runtime. Scrivimi il tipo e anche un breve service_template di esempio che lo usa.",
+      "expected_output": "Un file TOSCA 2.0 con node_types contenente KubernetesDeployment con le proprietà richieste, capability Endpoint, requirement verso Container.Runtime, e un service_template di esempio. Usa tosca_2_0 e org.oasis-open.simple:2.0.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Trasforma questa architettura in un file TOSCA 2.0: ho un load balancer che distribuisce il traffico su 3 istanze di un'app Python (Flask), ognuna connessa a un database PostgreSQL condiviso. Il load balancer è pubblico sulla porta 443. Le app Flask sono sulla porta 5000 internamente. Il PostgreSQL è sulla porta 5432. Organizza il file con le definizioni dei tipi personalizzati e il service_template separati in modo chiaro.",
+      "expected_output": "Un file TOSCA 2.0 completo con node_types per FlaskApp e relativi tipi, LoadBalancer, node_templates per le 3 istanze Flask + il DB PostgreSQL + il load balancer, usando la sintassi TOSCA 2.0 corretta (service_template, count_range invece di occurrences, ecc.).",
+      "files": []
+    }
+  ]
+}
